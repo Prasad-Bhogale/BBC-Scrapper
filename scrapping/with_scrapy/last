@@ -1,0 +1,24 @@
+
+import scrapy
+
+
+class BbcSpider(scrapy.Spider):
+    name = "bbc"
+    start_urls = ["https://www.bbc.com/"]
+
+    def parse(self, response):
+        articles = response.css('article')
+
+        for article in articles:
+            url = article.css('a::attr(href)').get()
+            tag = article.css('a::attr(text)').get()
+            image = article.css('img::attr(src)').get()
+            title = article.css('h3::attr(text)').get()
+            
+
+            yield{
+                "URL" : url,
+                "TAG" : tag,
+                "IMAGE" : image,
+                "TITLE" : title
+            }
