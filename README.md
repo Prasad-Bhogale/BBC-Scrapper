@@ -6,4 +6,5 @@
     -Started my scrapy project
     -Created a spider
     -Imported Libraries
-    -Passed a link whose data has to be scrapped
+    -Passed a link whose data has to be scrapped.
+    -Fetched data by using different selectors. 
